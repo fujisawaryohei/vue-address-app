@@ -8,7 +8,7 @@
           </v-list-tile-avatar>
 
           <v-list-tile-content>
-            <v-list-tile-title>Kazuya Kojima</v-list-tile-title>
+            <v-list-tile-title>hogehoge</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>

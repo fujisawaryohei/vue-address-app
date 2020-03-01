@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     drawer: false,
-    addresses: []
+    addresses: [],
+    user_info: null
   },
   mutations: {
     toggleSideMenu(state){
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     },
     createInfo(state, address){
       state.addresses.push(address);
+    },
+    setLoginUser(state, userInfo){
+      state.user_info = userInfo
     }
   },
   actions: {
@@ -27,6 +31,9 @@ export default new Vuex.Store({
     login(){
       const authProvider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(authProvider);
+    },
+    setLoginUser(context, userInfo){
+      context.commit('setLoginUser', userInfo);
     }
   },
   modules: {
