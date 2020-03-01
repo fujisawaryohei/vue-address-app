@@ -1,28 +1,41 @@
 <template>
   <v-app>
+    <!-- header -->
     <v-toolbar app>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click="toggleSideMenu"></v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase">
         <span>マイアドレス帳</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
-
+    <!-- header -->
+    <!-- sideNav -->
+    <SideNav/>
+    <!-- SideNav-->
+    <!-- content -->
     <v-content>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-content>
+    <!-- content -->
   </v-app>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import SideNav from './components/SideNav';
+
 export default {
   name: 'App',
   components: {
+    SideNav
   },
   data () {
     return {
       //
     }
+  },
+  methods: {
+    ...mapActions(['toggleSideMenu'])
   }
 }
 </script>

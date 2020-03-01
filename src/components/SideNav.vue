@@ -16,7 +16,7 @@
       <v-list class="pt-0" dense>
         <v-divider></v-divider>
 
-        <v-list-tile v-for="item in items" :key="item.title">
+        <v-list-tile v-for="item in items" :key="item.title" :to="item.link">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -35,7 +35,8 @@ export default {
   data () {
     return {
       items: [
-        { title: '連絡先一覧', icon: 'list' }
+        { title: 'ホーム', icon: 'home', link: { name: 'home' }},
+        { title: '連絡先一覧', icon: 'list' , link: { name: 'addresses' }}
       ]
     }
   }
