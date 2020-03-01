@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import firebase from 'firebase'
 
 Vue.use(Vuex)
 
@@ -22,6 +23,10 @@ export default new Vuex.Store({
     },
     createInfo(context, address){
       context.commit('createInfo', address);
+    },
+    login(){
+      const authProvider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithRedirect(authProvider);
     }
   },
   modules: {
