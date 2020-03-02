@@ -7,6 +7,9 @@
         <span>マイアドレス帳</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn @click="logout">ログアウト</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <!-- header -->
     <!-- sideNav -->
@@ -34,11 +37,13 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
         if(user) {
           this.setLoginUser(user);
+        } else {
+          this.deleteUserInfo();
         }
-      })
+    })
   },
   methods: {
-    ...mapActions(['toggleSideMenu', 'setLoginUser'])
+    ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteUserInfo'])
   }
 }
 </script>

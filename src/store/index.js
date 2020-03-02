@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     setLoginUser(state, userInfo){
       state.user_info = userInfo
+    },
+    deleteUserInfo(state){
+      state.user_info = null;
     }
   },
   actions: {
@@ -34,6 +37,12 @@ export default new Vuex.Store({
     },
     setLoginUser(context, userInfo){
       context.commit('setLoginUser', userInfo);
+    },
+    logout(){
+      firebase.auth().signOut();
+    },
+    deleteUserInfo(context){
+      context.commit('deleteUserInfo');
     }
   },
   modules: {
