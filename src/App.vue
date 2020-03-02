@@ -38,7 +38,7 @@ export default {
       })
   },
   methods: {
-    ...mapActions(['toggleSideMenu', 'setLoignUser'])
+    ...mapActions(['toggleSideMenu', 'setLoginUser'])
   }
 }
 </script>
