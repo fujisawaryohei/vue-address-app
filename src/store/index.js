@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     drawer: false,
     addresses: [],
-    user_info: null
+    login_user: null
   },
   mutations: {
     toggleSideMenu(state){
@@ -18,10 +18,10 @@ export default new Vuex.Store({
       state.addresses.push(address);
     },
     setLoginUser(state, userInfo){
-      state.user_info = userInfo
+      state.login_user = userInfo
     },
     deleteUserInfo(state){
-      state.user_info = null;
+      state.login_user = null;
     }
   },
   actions: {
@@ -43,6 +43,14 @@ export default new Vuex.Store({
     },
     deleteUserInfo(context){
       context.commit('deleteUserInfo');
+    }
+  },
+  getters: {
+    userName: (state) => { 
+      return state.login_user.displayName ? state.login_user.displayName : '';
+    },
+    photoURL: (state) => { 
+      return state.login_user.photoURL ? state.login_user.photoURL : '' ;
     }
   },
   modules: {
